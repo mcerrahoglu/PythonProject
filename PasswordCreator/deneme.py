@@ -93,3 +93,8 @@ class Password():
                             self.harfkontrol(uppervaryok)
 
         print(f"şifre..:{self.sifre}")
+
+
+
+
+
