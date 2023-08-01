@@ -1,3 +1,4 @@
+import random
 from random import randint
 
 class Password():
@@ -50,6 +51,24 @@ class Password():
         c = str(self.sembola[self.ransem])
         self.sifre = self.sifre + c
 
+    def passwordcheck(self):
+        sifre = list(self.sifre)
+        if len(sifre) > 1:
+            if sifre[-1] == sifre[-2]:
+                a = sifre[-1]
+                for i in self.listoftr:
+                    if a == i:
+                        sifre[-1] = random.choice(self.listoftr)
+                        break
+                for j in self.numerica:
+                    if a == j:
+                        sifre[-1] = random.choice(self.numerica)
+                        break
+                for k in self.sembola:
+                    if a == k:
+                        sifre[-1] = random.choice(self.sembola)
+                        break
+
 
     def passwordcreate(self, numara, sembol, uppervaryok, uzunluk):
         controlofnumeric = 0
@@ -66,30 +85,39 @@ class Password():
 
             if self.ran == 0:
                 self.harfkontrol(uppervaryok)
+                self.passwordcheck()
 
             elif self.ran == 1:
                 if controlofnumeric == 1:
                     self.numaracontrol()
+                    self.passwordcheck()
                 else:
                     sayi = randint(0, 1)
                     if sayi == 1:
                         self.harfkontrol(uppervaryok)
+                        self.passwordcheck()
                     else:
                         if controlofsembol == 1:
                             self.sembolkontrol()
+                            self.passwordcheck()
                         else:
                             self.harfkontrol(uppervaryok)
+                            self.passwordcheck()
             elif self.ran == 2:
                 if controlofsembol == 1:
                     self.sembolkontrol()
+                    self.passwordcheck()
                 else:
                     sayi = randint(0, 1)
                     if sayi == 1:
                         self.harfkontrol(uppervaryok)
+                        self.passwordcheck()
                     else:
                         if controlofnumeric == 1:
                             self.numaracontrol()
+                            self.passwordcheck()
                         else:
                             self.harfkontrol(uppervaryok)
+                            self.passwordcheck()
 
         print(f"şifre..:{self.sifre}")
