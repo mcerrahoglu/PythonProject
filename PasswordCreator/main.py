@@ -2,8 +2,7 @@ import generalcode
 
 
 obje = generalcode.Password()
-obje.passwordcreate(1, 1, 1, 12)
-"""
+
 while True:
     try:
         numeric = int(input("Şifrenizde Numara Olsun mu? (Evet=1 , Hayır=0)..:"))
@@ -19,4 +18,3 @@ while True:
         print("Lütfen istenilen değerleri giriniz")
 
 obje.passwordcreate(numeric, sembol, harf, karakter)
-"""
